@@ -25,6 +25,10 @@ export function App() {
         setItems((prev) => prev.filter((_, i) => i !== index))
     }
 
+    function handleAdd(name: string) {
+        setItems((prev) => [...prev, { name, status: "unfinished" }])
+    }
+
     return (
         <main className="flex min-h-svh justify-center bg-background px-4 py-12 sm:py-20">
             <div className="flex w-full max-w-md flex-col gap-8">
@@ -37,6 +41,7 @@ export function App() {
                         items={items}
                         onToggle={handleToggle}
                         onDelete={handleDelete}
+                        onAdd={handleAdd}
                     />
                 </div>
             </div>
